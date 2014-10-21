@@ -1,0 +1,24 @@
+@mixin mq($w){
+    @if $w == large {
+        @media only screen and (max-width: $large){
+            @content;
+        }
+    }@else if $w == medium {
+        @media only screen and (max-width: $medium){
+            @content;
+        }
+    }@else if $w == small {
+        @media only screen and (max-with: $small){
+            @content;
+        }
+    }@else if $w == retina {
+        @media only screen and (    -webkit-min-device-pixel-ratio: 2),
+               only screen and (       min--moz-device-pixel-ratio: 2),
+               only screen and (       -o-min-device-pixel-ratio: 2/1),
+               only screen and (            min-device-pixel-ratio: 2),
+               only screen and (               min-resolution: 192dpi),
+               only screen and (                min-resolution: 2dppx) {
+            @content
+	    }
+    }
+}
